@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "angular-notes"
+    }
+  },
+  "defaultProject": "angular-notes",
+  "cli": {
+    "analytics": "1f55d75a-916a-4045-8576-394fa9e3ea0b"
+  }
 }
