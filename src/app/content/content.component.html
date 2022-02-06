@@ -1,1 +1,41 @@
-<main>content works!</main>
+<main>
+  <div *ngIf="currentNote">
+    <div *ngIf="!isEditMode; else elseBlock">
+      <button name="edit-note-btn" (click)="toggleEditMode(true)">
+        edit note
+      </button>
+      <h2>{{ currentNote.title }}</h2>
+      <p>{{ currentNote.text }}</p>
+    </div>
+    <ng-template #elseBlock>
+      <button
+        [disabled]="noteTitle.invalid || noteText.invalid"
+        name="save-note-btn"
+        (click)="updateNote()"
+      >
+        save note
+      </button>
+      <button (click)="toggleEditMode(false)">cancel</button>
+      <input
+        name="note-title"
+        type="text"
+        [ngModel]="currentNote.title"
+        (ngModelChange)="changeTitle($event)"
+        required
+        minlength="1"
+        #noteTitle="ngModel"
+      />
+      <span *ngIf="noteTitle.invalid">Введите заголовок заметки</span>
+      <textarea
+        name="note-text"
+        [ngModel]="currentNote.text"
+        (ngModelChange)="changeText($event)"
+        required
+        minlength="1"
+        #noteText="ngModel"
+      >
+      </textarea>
+      <span *ngIf="noteText.invalid">Введите текст заметки</span>
+    </ng-template>
+  </div>
+</main>

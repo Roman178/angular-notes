@@ -1,3 +1,47 @@
 <header class="header">
-  <h1 class="title">Мои заметки</h1>
+  <h1 (click)="handleLogoClick()" [routerLink]="['/']" class="title">
+    Мои заметки
+  </h1>
+  <button (click)="setIsPopupOpened(true)">добавить заметку</button>
 </header>
+
+<div
+  *ngIf="isPopupOpened"
+  class="popup"
+  (click)="setIsPopupOpened(false)"
+></div>
+<form *ngIf="isPopupOpened" class="form" (ngSubmit)="handleSubmit()">
+  <label for="add-note-title">
+    Заголовок заметки
+    <input
+      id="add-note-title"
+      name="add-note-title"
+      #addNoteTitle="ngModel"
+      [(ngModel)]="newNoteTitle"
+      required
+      minlength="1"
+      type="text"
+    />
+    <span *ngIf="addNoteTitle.invalid"> Введите заголовок новой заметки </span>
+  </label>
+
+  <label for="add-note-text">
+    Текст заметки
+    <textarea
+      id="add-note-text"
+      name="add-note-text"
+      #addNoteText="ngModel"
+      [(ngModel)]="newNoteText"
+      required
+      minlength="1"
+    ></textarea>
+    <span *ngIf="addNoteText.invalid"> Введите текст новой заметки </span>
+  </label>
+
+  <button
+    type="submit"
+    [disabled]="addNoteTitle.invalid || addNoteText.invalid"
+  >
+    Создать новую заметку
+  </button>
+</form>

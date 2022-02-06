@@ -1,1 +1,16 @@
-<aside>sidebar works!</aside>
+<aside class="sidebar">
+  <ul *ngFor="let note of notes" class="list">
+    <li
+      [ngClass]="{ 'note-is-active': note.id === currentNote?.id }"
+      (click)="handleNoteClick(note)"
+      class="note"
+    >
+      <p>{{ note.title }}</p>
+      <button (click)="handleRemoveBtnClick($event, note)" class="delete-btn">
+        удалить
+      </button>
+    </li>
+  </ul>
+</aside>
+
+<!-- [routerLink]="['/note', note.id]" -->
