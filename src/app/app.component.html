@@ -1,14 +1,19 @@
-<app-header
-  (onCreateNoteBtnClick)="createNote($event)"
-  (onLogoClick)="resetCurrentNote()"
-></app-header>
+<header>
+  <app-header
+    (onCreateNoteBtnClick)="createNote($event)"
+    (onLogoClick)="resetCurrentNote()"
+  ></app-header>
+</header>
 <div class="main-wrapper">
-  <app-sidebar
-    (onNoteClick)="setCurrentNote($event)"
-    (onRemoveBtnClick)="removeNote($event)"
-    [notes]="notes"
-    [currentNote]="currentNote"
-  ></app-sidebar>
-  <router-outlet></router-outlet>
-  <!-- <app-content [currentNote]="currentNote"></app-content> -->
+  <aside>
+    <app-sidebar
+      (onNoteClick)="setCurrentNote($event)"
+      (onRemoveBtnClick)="removeNote($event)"
+      [notes]="notes"
+      [currentNote]="currentNote"
+    ></app-sidebar>
+  </aside>
+  <main class="content">
+    <router-outlet></router-outlet>
+  </main>
 </div>

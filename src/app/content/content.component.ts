@@ -24,8 +24,8 @@ export class ContentComponent implements OnInit {
   private isIgnoredElementOnWindowClick(elementName) {
     return (
       elementName === 'save-note-btn' ||
-      elementName === 'note-title' ||
-      elementName === 'note-text' ||
+      elementName === 'note-title-input' ||
+      elementName === 'note-text-textarea' ||
       elementName === 'edit-note-btn'
     );
   }

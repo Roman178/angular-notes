@@ -1,4 +1,4 @@
-<aside class="sidebar">
+<div class="sidebar">
   <ul *ngFor="let note of notes" class="list">
     <li
       [ngClass]="{ 'note-is-active': note.id === currentNote?.id }"
@@ -6,11 +6,11 @@
       class="note"
     >
       <p>{{ note.title }}</p>
-      <button (click)="handleRemoveBtnClick($event, note)" class="delete-btn">
+      <button (click)="handleRemoveBtnClick($event, note)" class="remove-btn">
         удалить
       </button>
     </li>
   </ul>
-</aside>
+</div>
 
 <!-- [routerLink]="['/note', note.id]" -->

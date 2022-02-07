@@ -1,9 +1,11 @@
-<header class="header">
+<div class="header">
   <h1 (click)="handleLogoClick()" [routerLink]="['/']" class="title">
     Мои заметки
   </h1>
-  <button (click)="setIsPopupOpened(true)">добавить заметку</button>
-</header>
+  <button class="add-note-btn" (click)="setIsPopupOpened(true)">
+    добавить заметку
+  </button>
+</div>
 
 <div
   *ngIf="isPopupOpened"
@@ -11,34 +13,41 @@
   (click)="setIsPopupOpened(false)"
 ></div>
 <form *ngIf="isPopupOpened" class="form" (ngSubmit)="handleSubmit()">
-  <label for="add-note-title">
-    Заголовок заметки
+  <label class="label" for="add-note-title">
+    <h3>Заголовок заметки</h3>
     <input
       id="add-note-title"
       name="add-note-title"
+      class="add-note-title"
       #addNoteTitle="ngModel"
       [(ngModel)]="newNoteTitle"
       required
       minlength="1"
       type="text"
     />
-    <span *ngIf="addNoteTitle.invalid"> Введите заголовок новой заметки </span>
+    <span class="error-msg" *ngIf="addNoteTitle.invalid">
+      Введите заголовок новой заметки
+    </span>
   </label>
 
-  <label for="add-note-text">
-    Текст заметки
+  <label class="label" for="add-note-text">
+    <h3>Текст заметки</h3>
     <textarea
       id="add-note-text"
       name="add-note-text"
+      class="add-note-text"
       #addNoteText="ngModel"
       [(ngModel)]="newNoteText"
       required
       minlength="1"
     ></textarea>
-    <span *ngIf="addNoteText.invalid"> Введите текст новой заметки </span>
+    <span class="error-msg" *ngIf="addNoteText.invalid">
+      Введите текст новой заметки
+    </span>
   </label>
 
   <button
+    class="add-note-btn"
     type="submit"
     [disabled]="addNoteTitle.invalid || addNoteText.invalid"
   >

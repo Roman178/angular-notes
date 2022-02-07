@@ -1,0 +1,66 @@
+@import "../../style/index.scss";
+
+.edit-note-btn {
+  @include button($primary);
+}
+
+.note-content {
+  padding: 20px;
+}
+
+.note-title {
+  margin: 20px 0 40px 0;
+  color: $primary;
+  font-size: 32px;
+  font-weight: 700;
+}
+
+.note-text {
+  font-size: 16px;
+  margin: 0;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.btns {
+  margin-bottom: 20px;
+}
+
+.save-note-btn,
+.cancel-btn {
+  @include button($primary);
+  margin-right: 10px;
+}
+
+.save-note-btn:disabled {
+  @include disabled-button;
+}
+
+.note-title-label {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+}
+
+.note-text-label {
+  display: flex;
+  flex-direction: column;
+  min-height: 80px;
+}
+
+.note-title-input {
+  font-size: 32px;
+  color: $primary;
+  font-weight: 700;
+}
+
+.note-text-textarea {
+  font-size: 16px;
+}
+
+.error-msg {
+  color: $error;
+}

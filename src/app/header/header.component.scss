@@ -1,13 +1,23 @@
+@import "../../style/index.scss";
+
 .header {
   height: 70px;
-  background-color: #edf1f3;
+  background-color: $custom-grey;
   border-top: 3px solid black;
   border-bottom: 3px solid black;
+  padding-left: 40px;
+  display: flex;
+  align-items: center;
 }
 
 .title {
   margin: 0;
   cursor: pointer;
+  margin-right: 20px;
+}
+
+.add-note-btn {
+  @include button($primary);
 }
 
 .popup {
@@ -24,4 +34,44 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  background-color: white;
+  border: 3px solid black;
+  min-height: 500px;
+  width: 600px;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.label:last-of-type {
+  flex-grow: 2;
+  padding-bottom: 45px;
+}
+
+.error-msg {
+  color: $error;
+}
+
+.add-note-title {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.add-note-text {
+  font-size: 16px;
+  flex-grow: 2;
+}
+
+.add-note-btn {
+  @include button($primary);
+  align-self: center;
+}
+
+.add-note-btn:disabled {
+  @include disabled-button;
 }

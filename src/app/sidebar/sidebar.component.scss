@@ -1,5 +1,11 @@
+@import "../../style/index.scss";
+
 .sidebar {
-  max-width: 200px;
+  width: 320px;
+  padding: 15px;
+  background-color: $custom-grey;
+  border-right: 3px solid black;
+  border-bottom: 3px solid black;
 }
 
 .list {
@@ -10,10 +16,20 @@
 .note {
   cursor: pointer;
   display: flex;
+  min-height: 75px;
   align-items: center;
   justify-content: space-between;
+  background-color: white;
+  padding: 0 10px;
+  font-size: 20px;
+  font-weight: 700;
 }
 
 .note-is-active {
-  background-color: aqua;
+  background-color: #3366ff;
+  color: white;
+}
+
+.remove-btn {
+  @include button($error);
 }
